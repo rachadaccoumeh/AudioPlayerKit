@@ -52,9 +52,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				573113D82AF91329001054FA /* bass_fx.xcframework in Embed Frameworks */,
 				573113DD2AF9132B001054FA /* bassflac.xcframework in Embed Frameworks */,
 				573113DB2AF9132A001054FA /* bass.xcframework in Embed Frameworks */,
-				573113D82AF91329001054FA /* bass_fx.xcframework in Embed Frameworks */,
 				573113DF2AF9132D001054FA /* bassopus.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -85,7 +85,7 @@
 		57A9E8A12AF7AC4B00B30B4B /* bassflac.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = bassflac.xcframework; path = ../../AudioPlayerKit/Classes/BASS/bassflac.xcframework; sourceTree = "<group>"; };
 		57A9E8A42AF7AC4D00B30B4B /* bassopus.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = bassopus.xcframework; path = ../../AudioPlayerKit/Classes/BASS/bassopus.xcframework; sourceTree = "<group>"; };
 		5B672944D2B9FF4BB26B3CE5C1E3A593 /* Pods-AudioPlayerKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AudioPlayerKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		5B8ACD191FE9581C2A7AD3A37ECA13D4 /* AudioPlayerKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AudioPlayerKit.swift; path = AudioPlayerKit/Classes/AudioPlayerKit.swift; sourceTree = "<group>"; };
+		5B8ACD191FE9581C2A7AD3A37ECA13D4 /* AudioPlayerKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AudioPlayerKit.swift; sourceTree = "<group>"; };
 		718B8352B2C630F475812D7840BF3F05 /* Pods-AudioPlayerKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AudioPlayerKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7453B520BE1A61F08CF0B468F59A2C0E /* AudioPlayerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AudioPlayerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,10 +124,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07B193EAA6366FF425BEA2E8CDF93D12 /* Foundation.framework in Frameworks */,
 				573113DC2AF9132B001054FA /* bassflac.xcframework in Frameworks */,
 				573113DA2AF9132A001054FA /* bass.xcframework in Frameworks */,
 				573113D72AF91329001054FA /* bass_fx.xcframework in Frameworks */,
-				07B193EAA6366FF425BEA2E8CDF93D12 /* Foundation.framework in Frameworks */,
 				573113DE2AF9132D001054FA /* bassopus.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +175,13 @@
 				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		57A680502AFA40EC009D3649 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		620099C661017C9FA14B94EE3E1E2B0A /* Targets Support Files */ = {
@@ -254,8 +261,9 @@
 		F4DAEF2FB0DE19B8688CF96A4B296A1E /* AudioPlayerKit */ = {
 			isa = PBXGroup;
 			children = (
-				57A9E8922AF6BCE400B30B4B /* BASS */,
 				5B8ACD191FE9581C2A7AD3A37ECA13D4 /* AudioPlayerKit.swift */,
+				57A680502AFA40EC009D3649 /* Sources */,
+				57A9E8922AF6BCE400B30B4B /* BASS */,
 				2DB9241B5DE33C7767415D0A6646275C /* Pod */,
 				99BB22A4E1928A6397ED9E5CED1D1A3D /* Support Files */,
 			);
@@ -460,7 +468,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../AudioPlayerKit/Classes/BASS/\"";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = "Target Support Files/AudioPlayerKit/AudioPlayerKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AudioPlayerKit/AudioPlayerKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -651,7 +659,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -753,7 +761,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -778,7 +786,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../AudioPlayerKit/Classes/BASS/\"";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = "Target Support Files/AudioPlayerKit/AudioPlayerKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AudioPlayerKit/AudioPlayerKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

@@ -46,25 +46,63 @@ Pod::Spec.new do |s|
   AudioPlayerKit brings a wealth of powerful features to your iOS audio applications, ensuring a top-notch user experience and a multitude of options for audio manipulation and analysis. This library is your go-to choice for all your audio-related tasks, making it easy to integrate and utilize audio playback capabilities in your projects.
   DESC
 
-  s.homepage         = 'https://github.com/rachadaccoumeh@gmail.com/AudioPlayerKit'
+  s.homepage         = 'https://github.com/rachadaccoumeh/AudioPlayerKit'
   s.screenshots     = 'https://raw.githubusercontent.com/rachadaccoumeh/AudioPlayerKit/master/Screenshots/screenshot1.png' , 'https://raw.githubusercontent.com/rachadaccoumeh/AudioPlayerKit/master/Screenshots/screenshot2.gif'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Rachad Accoumeh' => 'rachadaccoumeh@gmail.com' }
   s.source           = { :git => 'https://github.com/rachadaccoumeh/AudioPlayerKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '13.0'
+  s.platform          = :ios, '13.0'
+  
+#  # Define the source files and resources paths
+#  s.source_files = 'AudioPlayerKit/Classes/**/*.swift'
+#  s.resource = 'AudioPlayerKit/Classes/BASS/**/*.txt', 'AudioPlayerKit/Classes/BASS/**/*.chm', 'AudioPlayerKit/Classes/BASS/**/*.h', 'AudioPlayerKit/Classes/BASS/**/*.xcframework'
+#  
+#  # Specify the xcframeworks
+  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass.xcframework'
+  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass_fx.xcframework'
+  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bassopus.xcframework'
+  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bassflac.xcframework'
+#
+#  s.subspec 'bass_fx' do |ss|
+#    ss.source_files = 'AudioPlayerKit/Classes/BASS/*.h'
+#    ss.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass_fx.xcframework'
+#    ss.xcconfig = { 'OTHER_LDFLAGS' => '-lbass_fx' }
+#  end
+#
+#  s.subspec 'bassopus' do |ss|
+#    ss.source_files = 'AudioPlayerKit/Classes/BASS/*.h'
+#    ss.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bassopus.xcframework'
+#    ss.xcconfig = { 'OTHER_LDFLAGS' => '-lbassopus' }
+#  end
+#
+#  s.subspec 'bassflac' do |ss|
+#    ss.source_files = 'AudioPlayerKit/Classes/BASS/*.h'
+#    ss.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bassflac.xcframework'
+#    ss.xcconfig = { 'OTHER_LDFLAGS' => '-lbassflac' }
+#  end
+#
+#  # ... (other podspec settings)
+#
+#end
 
-  s.source_files = 'AudioPlayerKit/Classes/**/*'
-#  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/*.xcframework'
-#  s.frameworks = 'AudioPlayerKit/Classes/BASS/*.xcframework'
-#  s.preserve_paths = 'AudioPlayerKit/Classes/BASS/*.h'
+
+
+
+  s.source_files = 'AudioPlayerKit/Classes/**/*.{h,m,swift}'
+#  s.ios.vendored_frameworks = 'AudioPlayerKit/Classes/**/bass.xcframework','AudioPlayerKit/Classes/**/bass_fx.xcframework', 'AudioPlayerKit/Classes/**/bassflac.xcframework', 'AudioPlayerKit/Classes/**/bassopus.xcframework'
+#  s.preserve_paths = 'AudioPlayerKit/Classes/**/*.h'
+#  s.public_header_files = 'AudioPlayerKit/Classes/**/*.h'
+#  s.frameworks = 'AudioPlayerKit/Classes/**/*.xcframework'
+#  s.public_header_files = 'AudioPlayerKit/Classes/**/*.h'
 #  s.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/AudioPlayerKit/Classes/BASS/*.h' }
 
-  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass.xcframework','AudioPlayerKit/Classes/BASS/bass_fx.xcframework','AudioPlayerKit/Classes/BASS/bassflac.xcframework','AudioPlayerKit/Classes/BASS/bassopus.xcframework'
-  s.frameworks   = 'AVFoundation'
+#  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass.xcframework','AudioPlayerKit/Classes/BASS/bass_fx.xcframework','AudioPlayerKit/Classes/BASS/bassflac.xcframework','AudioPlayerKit/Classes/BASS/bassopus.xcframework'
+#  s.frameworks   = 'AVFoundation'
 
-#  s.vendored_frameworks = 'MyFramework.framework'
+#  s.vendored_frameworks = 'AudioPlayerKit.framework'
   # s.resource_bundles = {
   #   'AudioPlayerKit' => ['AudioPlayerKit/Assets/*.png']
   # }
@@ -72,4 +110,5 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+
 end
