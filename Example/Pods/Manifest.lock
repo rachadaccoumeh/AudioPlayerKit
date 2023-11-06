@@ -1,0 +1,16 @@
+PODS:
+  - AudioPlayerKit (0.1.0)
+
+DEPENDENCIES:
+  - AudioPlayerKit (from `../`)
+
+EXTERNAL SOURCES:
+  AudioPlayerKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AudioPlayerKit: 7490b6dccecce26aa99e569a36c71f8cb467e97a
+
+PODFILE CHECKSUM: b324cde1b2c7cac57695858c6517b9fb7169a474
+
+COCOAPODS: 1.13.0
