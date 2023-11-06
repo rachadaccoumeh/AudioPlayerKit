@@ -6,12 +6,15 @@
 //  Copyright (c) 2023 rachadaccoumeh@gmail.com. All rights reserved.
 //
 import AVFoundation
+import SwiftUI
+import Combine
+
 
 
 @objc public class AudioPlayerKit: NSObject, ObservableObject {
     static let audioManager = AudioPlayerKit() // This singleton instantiates the AudioManager class and runs setupAudio()
     
-    weak var delegate: AudioPlayerKitDelegate?
+    public weak var delegate: AudioPlayerKitDelegate?
     private var notificationCenter: NotificationCenter = NotificationCenter.default
     private var audioSession = AVAudioSession.sharedInstance
 
@@ -21,14 +24,14 @@ import AVFoundation
     
     
     
-    let timeInterval: Double = 1.0 / 60.0 // 60 frames per second
+    var timeInterval: Double = 1.0 / 60.0 // 60 frames per second
     let micOn: Bool = false
     var tempoStream: HSTREAM = 0
     
     // Play this song when the SwiftBassDemo app starts:
     
     // Declare an array of the final values (for this frame) that we will publish to the visualization:
-    @Published var spectrum: [Float] = [Float](repeating: 0.0, count: 16384 / 2) // binCount = 8,192
+    @Published public var spectrum: [Float] = [Float](repeating: 0.0, count: 16384 / 2) // binCount = 8,192
     
     // MARK: Init
     
@@ -69,6 +72,7 @@ import AVFoundation
     }
     
     public func stop(){
+        setPosition(position: 0)
         BASS_ChannelStop(tempoStream)
         self.notifyStatusChanged()
     }
@@ -78,7 +82,7 @@ import AVFoundation
         return isPlaying == BASS_ACTIVE_PLAYING
     }
     
-    public func loadAudio(url:NSURL,play:Bool)->Bool{
+    public func loadAudio(url:NSURL,play:Bool = false,timeInterval: Double = 30.0)->Bool{
 //        do {
 //            try audioSession.setCategory(.playback)
 //            try audioSession.setActive(true)
@@ -86,6 +90,7 @@ import AVFoundation
 //            print("Error setting audio session category: \(error)")
 //        }        
         
+        self.timeInterval = 1.0 / timeInterval
         //Stop channel;
         BASS_ChannelStop(tempoStream)
         //Free memory
@@ -118,8 +123,9 @@ import AVFoundation
         
         
         // Compute the 8192-bin spectrum of the song waveform every 1/60 seconds:
-        Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { _ in
+        Timer.scheduledTimer(withTimeInterval: self.timeInterval, repeats: true) { _ in
             BASS_ChannelGetData(self.tempoStream, &self.spectrum, BASS_DATA_FFT16384)
+            self.delegate?.updatePosition?(self.position())
         }
         
         if(play){
@@ -192,19 +198,24 @@ import AVFoundation
     
     
     private func calculateTempoPitchAndSampleRateBasedOnSpeed(speed: Float) -> (tempo: Float, pitch: Float, sampleRate: Float) {
-        // Calculate the tempo.
-        let tempoFactor = (speed-1)*100
-        print("speed \(tempoFactor)")
+//        // Calculate the tempo.
+//        let tempoFactor = (speed-1)*100
+//        print("speed \(tempoFactor)")
+//        
+//        // Calculate the pitch.
+//        let pitchSemitones = (log2(tempoFactor) * 12)
+//        print("pitchSemitones \(pitchSemitones)")
+//        
+//        // Calculate the sample rate.
+//        let sampleRate = (Float)(44100 * tempoFactor)
+//        print("sampleRate \(sampleRate)")
+//        
+//        return (tempoFactor, pitchSemitones, sampleRate)
         
-        // Calculate the pitch.
-        let pitchSemitones = (log2(speed) * 12)
-        print("pitchSemitones \(pitchSemitones)")
-        
-        // Calculate the sample rate.
-        let sampleRate = (Float)(44100 * speed)
-        print("sampleRate \(sampleRate)")
-        
-        return (tempoFactor, pitchSemitones, sampleRate)
+        let tempo = speed * 2.0
+        let pitch = speed / 2.0
+        let sampleRate = speed * 44100.0
+        return (tempo, pitch, sampleRate)
     }
     
     // MARK: sync callback and delegate
@@ -267,7 +278,9 @@ func channelEndedCallback(handle: HSYNC, channel: DWORD, data: DWORD, user: Unsa
 // MARK: protocol
 
 
-@objc protocol AudioPlayerKitDelegate {
+@objc public protocol AudioPlayerKitDelegate {
+    
+    @objc optional func updatePosition(_ position: Double)
     /**
      *  Notifies the delegate about playing status changed
      *

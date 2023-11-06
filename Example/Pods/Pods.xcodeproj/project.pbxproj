@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07B193EAA6366FF425BEA2E8CDF93D12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		07B193EAA6366FF425BEA2E8CDF93D12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; platformFilter = ios; };
 		45DE7596FA8BEFE3894944E7D6BA1590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		500A509A48DA1E7B3BED2901511451A1 /* Pods-AudioPlayerKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1780B629230EF289C73C9E9FFDE97 /* Pods-AudioPlayerKit_Tests-dummy.m */; };
-		57A9E8952AF6BCE400B30B4B /* BASS in Resources */ = {isa = PBXBuildFile; fileRef = 57A9E8922AF6BCE400B30B4B /* BASS */; };
-		57A9E89B2AF7ABD800B30B4B /* bass.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E89A2AF7ABD800B30B4B /* bass.xcframework */; };
-		57A9E89C2AF7ABD800B30B4B /* bass.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E89A2AF7ABD800B30B4B /* bass.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		57A9E89F2AF7AC4600B30B4B /* bass_fx.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E89E2AF7AC4600B30B4B /* bass_fx.xcframework */; };
-		57A9E8A02AF7AC4600B30B4B /* bass_fx.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E89E2AF7AC4600B30B4B /* bass_fx.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		57A9E8A22AF7AC4B00B30B4B /* bassflac.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E8A12AF7AC4B00B30B4B /* bassflac.xcframework */; };
-		57A9E8A32AF7AC4B00B30B4B /* bassflac.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E8A12AF7AC4B00B30B4B /* bassflac.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		57A9E8A52AF7AC4D00B30B4B /* bassopus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E8A42AF7AC4D00B30B4B /* bassopus.xcframework */; };
-		57A9E8A62AF7AC4D00B30B4B /* bassopus.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E8A42AF7AC4D00B30B4B /* bassopus.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		573113D72AF91329001054FA /* bass_fx.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E89E2AF7AC4600B30B4B /* bass_fx.xcframework */; platformFilter = ios; };
+		573113D82AF91329001054FA /* bass_fx.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E89E2AF7AC4600B30B4B /* bass_fx.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		573113DA2AF9132A001054FA /* bass.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E89A2AF7ABD800B30B4B /* bass.xcframework */; platformFilter = ios; };
+		573113DB2AF9132A001054FA /* bass.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E89A2AF7ABD800B30B4B /* bass.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		573113DC2AF9132B001054FA /* bassflac.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E8A12AF7AC4B00B30B4B /* bassflac.xcframework */; platformFilter = ios; };
+		573113DD2AF9132B001054FA /* bassflac.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E8A12AF7AC4B00B30B4B /* bassflac.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		573113DE2AF9132D001054FA /* bassopus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E8A42AF7AC4D00B30B4B /* bassopus.xcframework */; platformFilter = ios; };
+		573113DF2AF9132D001054FA /* bassopus.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E8A42AF7AC4D00B30B4B /* bassopus.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		57A9E8952AF6BCE400B30B4B /* BASS in Resources */ = {isa = PBXBuildFile; fileRef = 57A9E8922AF6BCE400B30B4B /* BASS */; platformFilter = ios; };
 		6592A310796714C15E81847BBCBF1C87 /* AudioPlayerKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 42D79712452E48C8BC5867856030DEF5 /* AudioPlayerKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83369D5C04B18931773D173AAD738FE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		8EEF610C73CD5EFD658DB741EE3B79A6 /* Pods-AudioPlayerKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F796003E8BA917EE786A70E034A70E7 /* Pods-AudioPlayerKit_Example-dummy.m */; };
 		A39DA548E7610D974817F59F970CB03C /* Pods-AudioPlayerKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 718B8352B2C630F475812D7840BF3F05 /* Pods-AudioPlayerKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF7681323B86DEC42E2926F8DD7062ED /* AudioPlayerKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D87693E26D1D8EF72FE139BD699C09 /* AudioPlayerKit-dummy.m */; };
+		BF7681323B86DEC42E2926F8DD7062ED /* AudioPlayerKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D87693E26D1D8EF72FE139BD699C09 /* AudioPlayerKit-dummy.m */; platformFilter = ios; };
 		C2E85B005A21EE0947BB2CF7B9CAFAD9 /* Pods-AudioPlayerKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F30919436CEBE46865B2016550A5D67 /* Pods-AudioPlayerKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CBFB51492F05A0C1EE708DCBB44F06CA /* AudioPlayerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8ACD191FE9581C2A7AD3A37ECA13D4 /* AudioPlayerKit.swift */; };
+		CBFB51492F05A0C1EE708DCBB44F06CA /* AudioPlayerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8ACD191FE9581C2A7AD3A37ECA13D4 /* AudioPlayerKit.swift */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,16 +46,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		57A9E89D2AF7ABD800B30B4B /* Embed Frameworks */ = {
+		573113D92AF91329001054FA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				57A9E8A32AF7AC4B00B30B4B /* bassflac.xcframework in Embed Frameworks */,
-				57A9E8A02AF7AC4600B30B4B /* bass_fx.xcframework in Embed Frameworks */,
-				57A9E89C2AF7ABD800B30B4B /* bass.xcframework in Embed Frameworks */,
-				57A9E8A62AF7AC4D00B30B4B /* bassopus.xcframework in Embed Frameworks */,
+				573113DD2AF9132B001054FA /* bassflac.xcframework in Embed Frameworks */,
+				573113DB2AF9132A001054FA /* bass.xcframework in Embed Frameworks */,
+				573113D82AF91329001054FA /* bass_fx.xcframework in Embed Frameworks */,
+				573113DF2AF9132D001054FA /* bassopus.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,11 +124,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57A9E89B2AF7ABD800B30B4B /* bass.xcframework in Frameworks */,
+				573113DC2AF9132B001054FA /* bassflac.xcframework in Frameworks */,
+				573113DA2AF9132A001054FA /* bass.xcframework in Frameworks */,
+				573113D72AF91329001054FA /* bass_fx.xcframework in Frameworks */,
 				07B193EAA6366FF425BEA2E8CDF93D12 /* Foundation.framework in Frameworks */,
-				57A9E8A22AF7AC4B00B30B4B /* bassflac.xcframework in Frameworks */,
-				57A9E89F2AF7AC4600B30B4B /* bass_fx.xcframework in Frameworks */,
-				57A9E8A52AF7AC4D00B30B4B /* bassopus.xcframework in Frameworks */,
+				573113DE2AF9132D001054FA /* bassopus.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +320,7 @@
 				3BA3805DBA6B1E8093F152963E9A7985 /* Sources */,
 				BDB77A98BC910C02A2F43CC3550046EE /* Frameworks */,
 				0FAEF0C40C48052687B293E509188C87 /* Resources */,
-				57A9E89D2AF7ABD800B30B4B /* Embed Frameworks */,
+				573113D92AF91329001054FA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -453,14 +453,14 @@
 			baseConfigurationReference = D1C698E81A857C22831EBC9A4AC38D7A /* AudioPlayerKit.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 48Y7D388JG;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../AudioPlayerKit/Classes/BASS/\"";
 				GCC_PREFIX_HEADER = "Target Support Files/AudioPlayerKit/AudioPlayerKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AudioPlayerKit/AudioPlayerKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -475,6 +475,9 @@
 				PRODUCT_NAME = AudioPlayerKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
@@ -491,11 +494,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 48Y7D388JG;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 48Y7D388JG;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -529,11 +532,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 48Y7D388JG;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 48Y7D388JG;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -567,11 +570,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 48Y7D388JG;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 48Y7D388JG;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -666,11 +669,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 48Y7D388JG;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 48Y7D388JG;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -768,14 +771,14 @@
 			baseConfigurationReference = 2558D53F0C46365690F7BC0AD10B1F9D /* AudioPlayerKit.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 48Y7D388JG;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../AudioPlayerKit/Classes/BASS/\"";
 				GCC_PREFIX_HEADER = "Target Support Files/AudioPlayerKit/AudioPlayerKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AudioPlayerKit/AudioPlayerKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -790,6 +793,9 @@
 				PRODUCT_NAME = AudioPlayerKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;

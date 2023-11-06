@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +18,95 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlZ-5Q-APH">
+                                <rect key="frame" x="16" y="608" width="75" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="15U-Nf-KmV"/>
+                                    <constraint firstAttribute="height" constant="39" id="jrj-ld-Wdg"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="play"/>
+                                <connections>
+                                    <action selector="playAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SxM-aN-KdP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g72-UA-Bc3">
+                                <rect key="frame" x="108" y="608" width="75" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39" id="8dZ-Yo-B0G"/>
+                                    <constraint firstAttribute="width" constant="75" id="IeJ-eh-i1P"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="JgB-dG-jbi"/>
+                                    <constraint firstAttribute="height" constant="39" id="QCW-aW-EGi"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="pause"/>
+                                <connections>
+                                    <action selector="pauseAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uT6-rw-57J"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOv-VC-cRE">
+                                <rect key="frame" x="191" y="608" width="75" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="7yC-R7-Btl"/>
+                                    <constraint firstAttribute="height" constant="39" id="I71-PL-azI"/>
+                                    <constraint firstAttribute="width" constant="75" id="MC3-fB-xUM"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39" id="bhi-ol-xeI"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="stop"/>
+                                <connections>
+                                    <action selector="stopAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YUd-RY-ElB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfE-6U-8pa">
+                                <rect key="frame" x="284" y="608" width="75" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="0ex-xk-cJF"/>
+                                    <constraint firstAttribute="height" constant="39" id="AuG-tr-s7V"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39" id="NxR-VG-L06"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="Slr-4i-8dh"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="39" id="XdY-RD-aQF"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="gld-29-Ev5"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="1.0x"/>
+                                <connections>
+                                    <action selector="audioSpeed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dpZ-E5-bKe"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tMJ-eJ-Rim">
+                                <rect key="frame" x="16" y="559" width="338" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="lp1-FA-kai"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderHandler:" destination="vXZ-lx-hvc" eventType="valueChanged" id="BX2-9H-MaR"/>
+                                </connections>
+                            </slider>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="g72-UA-Bc3" secondAttribute="bottom" constant="20" id="2re-BJ-dpc"/>
+                            <constraint firstItem="qlZ-5Q-APH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="34y-gc-cmz"/>
+                            <constraint firstItem="DOv-VC-cRE" firstAttribute="leading" secondItem="g72-UA-Bc3" secondAttribute="trailing" constant="8" symbolic="YES" id="AsM-hX-LCv"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="VfE-6U-8pa" secondAttribute="bottom" constant="20" id="GqS-PK-1aP"/>
+                            <constraint firstItem="tMJ-eJ-Rim" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="2" id="HO7-0R-Vnn"/>
+                            <constraint firstItem="qlZ-5Q-APH" firstAttribute="top" secondItem="tMJ-eJ-Rim" secondAttribute="bottom" constant="20" id="NX8-o2-QZ9"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qlZ-5Q-APH" secondAttribute="bottom" constant="20" id="Uwg-MI-324"/>
+                            <constraint firstItem="VfE-6U-8pa" firstAttribute="leading" secondItem="DOv-VC-cRE" secondAttribute="trailing" constant="18" id="WrK-2p-OSS"/>
+                            <constraint firstItem="g72-UA-Bc3" firstAttribute="leading" secondItem="qlZ-5Q-APH" secondAttribute="trailing" constant="17" id="Yv5-b4-jeB"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="DOv-VC-cRE" secondAttribute="bottom" constant="20" id="d4M-cS-NMH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tMJ-eJ-Rim" secondAttribute="trailing" constant="7" id="p2O-nw-vQ6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="slider" destination="tMJ-eJ-Rim" id="M0h-La-rfM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="-1.3493253373313345"/>
         </scene>
     </scenes>
 </document>
