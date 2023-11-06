@@ -43,13 +43,14 @@ Pod::Spec.new do |s|
   GitHub Repository:
   AudioPlayerKit is an open-source project available on GitHub. You can find the repository here. We welcome contributions and assistance from the community to make AudioPlayerKit even better!
 
-  AudioPlayerKit brings a wealth of powerful features to your iOS audio applications, ensuring a top-notch user experience and a multitude of options for audio manipulation and analysis. This library is your go-to choice for all your audio-related tasks, making it easy to integrate and utilize audio playback capabilities in your projects.                       DESC
+  AudioPlayerKit brings a wealth of powerful features to your iOS audio applications, ensuring a top-notch user experience and a multitude of options for audio manipulation and analysis. This library is your go-to choice for all your audio-related tasks, making it easy to integrate and utilize audio playback capabilities in your projects.
+  DESC
 
   s.homepage         = 'https://github.com/rachadaccoumeh@gmail.com/AudioPlayerKit'
-   s.screenshots     = 'https://raw.githubusercontent.com/rachadaccoumeh/AudioPlayerKit/master/Screenshots/screenshot1.png' , 'https://raw.githubusercontent.com/rachadaccoumeh/AudioPlayerKit/master/Screenshots/screenshot2.gif'
+  s.screenshots     = 'https://raw.githubusercontent.com/rachadaccoumeh/AudioPlayerKit/master/Screenshots/screenshot1.png' , 'https://raw.githubusercontent.com/rachadaccoumeh/AudioPlayerKit/master/Screenshots/screenshot2.gif'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Rachad Accoumeh' => 'rachadaccoumeh@gmail.com' }
-  s.source           = { :git => 'https://github.com/rachadaccoumeh@gmail.com/AudioPlayerKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/rachadaccoumeh/AudioPlayerKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
