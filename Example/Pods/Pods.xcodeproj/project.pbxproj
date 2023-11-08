@@ -10,6 +10,7 @@
 		07B193EAA6366FF425BEA2E8CDF93D12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; platformFilter = ios; };
 		45DE7596FA8BEFE3894944E7D6BA1590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		500A509A48DA1E7B3BED2901511451A1 /* Pods-AudioPlayerKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1780B629230EF289C73C9E9FFDE97 /* Pods-AudioPlayerKit_Tests-dummy.m */; };
+		571302522AFBAB2A00CCF2CA /* AudioPlayerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571302512AFBAB2A00CCF2CA /* AudioPlayerKit.swift */; };
 		573113D72AF91329001054FA /* bass_fx.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E89E2AF7AC4600B30B4B /* bass_fx.xcframework */; platformFilter = ios; };
 		573113D82AF91329001054FA /* bass_fx.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E89E2AF7AC4600B30B4B /* bass_fx.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		573113DA2AF9132A001054FA /* bass.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E89A2AF7ABD800B30B4B /* bass.xcframework */; platformFilter = ios; };
@@ -25,7 +26,6 @@
 		A39DA548E7610D974817F59F970CB03C /* Pods-AudioPlayerKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 718B8352B2C630F475812D7840BF3F05 /* Pods-AudioPlayerKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF7681323B86DEC42E2926F8DD7062ED /* AudioPlayerKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D87693E26D1D8EF72FE139BD699C09 /* AudioPlayerKit-dummy.m */; platformFilter = ios; };
 		C2E85B005A21EE0947BB2CF7B9CAFAD9 /* Pods-AudioPlayerKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F30919436CEBE46865B2016550A5D67 /* Pods-AudioPlayerKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CBFB51492F05A0C1EE708DCBB44F06CA /* AudioPlayerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8ACD191FE9581C2A7AD3A37ECA13D4 /* AudioPlayerKit.swift */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,13 +79,13 @@
 		3D5BA776B8E41EFC253A44E6E3DD662B /* AudioPlayerKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AudioPlayerKit.modulemap; sourceTree = "<group>"; };
 		42C8BFA2176C97911FA904B7B454DFF1 /* Pods-AudioPlayerKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AudioPlayerKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		42D79712452E48C8BC5867856030DEF5 /* AudioPlayerKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AudioPlayerKit-umbrella.h"; sourceTree = "<group>"; };
+		571302512AFBAB2A00CCF2CA /* AudioPlayerKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioPlayerKit.swift; path = AudioPlayerKit/Classes/AudioPlayerKit.swift; sourceTree = "<group>"; };
 		57A9E8922AF6BCE400B30B4B /* BASS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BASS; path = AudioPlayerKit/Classes/BASS; sourceTree = "<group>"; };
 		57A9E89A2AF7ABD800B30B4B /* bass.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = bass.xcframework; path = ../../AudioPlayerKit/Classes/BASS/bass.xcframework; sourceTree = "<group>"; };
 		57A9E89E2AF7AC4600B30B4B /* bass_fx.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = bass_fx.xcframework; path = ../../AudioPlayerKit/Classes/BASS/bass_fx.xcframework; sourceTree = "<group>"; };
 		57A9E8A12AF7AC4B00B30B4B /* bassflac.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = bassflac.xcframework; path = ../../AudioPlayerKit/Classes/BASS/bassflac.xcframework; sourceTree = "<group>"; };
 		57A9E8A42AF7AC4D00B30B4B /* bassopus.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = bassopus.xcframework; path = ../../AudioPlayerKit/Classes/BASS/bassopus.xcframework; sourceTree = "<group>"; };
 		5B672944D2B9FF4BB26B3CE5C1E3A593 /* Pods-AudioPlayerKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AudioPlayerKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		5B8ACD191FE9581C2A7AD3A37ECA13D4 /* AudioPlayerKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AudioPlayerKit.swift; sourceTree = "<group>"; };
 		718B8352B2C630F475812D7840BF3F05 /* Pods-AudioPlayerKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AudioPlayerKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7453B520BE1A61F08CF0B468F59A2C0E /* AudioPlayerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AudioPlayerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -261,7 +261,7 @@
 		F4DAEF2FB0DE19B8688CF96A4B296A1E /* AudioPlayerKit */ = {
 			isa = PBXGroup;
 			children = (
-				5B8ACD191FE9581C2A7AD3A37ECA13D4 /* AudioPlayerKit.swift */,
+				571302512AFBAB2A00CCF2CA /* AudioPlayerKit.swift */,
 				57A680502AFA40EC009D3649 /* Sources */,
 				57A9E8922AF6BCE400B30B4B /* BASS */,
 				2DB9241B5DE33C7767415D0A6646275C /* Pod */,
@@ -426,7 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF7681323B86DEC42E2926F8DD7062ED /* AudioPlayerKit-dummy.m in Sources */,
-				CBFB51492F05A0C1EE708DCBB44F06CA /* AudioPlayerKit.swift in Sources */,
+				571302522AFBAB2A00CCF2CA /* AudioPlayerKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

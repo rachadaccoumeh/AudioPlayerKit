@@ -8,14 +8,9 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AudioPlayerKit'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'Audio player support most audio type with many feature '
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
   AudioPlayerKit - Your Ultimate Audio Player Library
@@ -61,23 +56,20 @@ Pod::Spec.new do |s|
   s.resource = 'AudioPlayerKit/Classes/BASS/**/*.txt', 'AudioPlayerKit/Classes/BASS/**/*.chm'
 #  
 #  # Specify the xcframeworks
-  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass.xcframework','AudioPlayerKit/Classes/BASS/bass_fx.xcframework', 'AudioPlayerKit/Classes/BASS/bassopus.xcframework', 'AudioPlayerKit/Classes/BASS/bassflac.xcframework'
+  s.ios.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass.xcframework','AudioPlayerKit/Classes/BASS/bass_fx.xcframework', 'AudioPlayerKit/Classes/BASS/bassopus.xcframework', 'AudioPlayerKit/Classes/BASS/bassflac.xcframework'
 
 
+  s.requires_arc = true
+  s.frameworks   = 'AVFoundation', 'bass', 'bass_fx', 'bassopus', 'bassflac'
 
 
 
 
   s.source_files = 'AudioPlayerKit/Classes/**/*.{h,m,swift}'
-#  s.ios.vendored_frameworks = 'AudioPlayerKit/Classes/**/bass.xcframework','AudioPlayerKit/Classes/**/bass_fx.xcframework', 'AudioPlayerKit/Classes/**/bassflac.xcframework', 'AudioPlayerKit/Classes/**/bassopus.xcframework'
-#  s.preserve_paths = 'AudioPlayerKit/Classes/**/*.h'
-#  s.public_header_files = 'AudioPlayerKit/Classes/**/*.h'
-#  s.frameworks = 'AudioPlayerKit/Classes/**/*.xcframework'
-#  s.public_header_files = 'AudioPlayerKit/Classes/**/*.h'
+  s.preserve_paths = 'AudioPlayerKit/Classes/**/*.h'
+  s.public_header_files = 'AudioPlayerKit/Classes/**/*.h'
 #  s.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/AudioPlayerKit/Classes/BASS/*.h' }
 
-#  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass.xcframework','AudioPlayerKit/Classes/BASS/bass_fx.xcframework','AudioPlayerKit/Classes/BASS/bassflac.xcframework','AudioPlayerKit/Classes/BASS/bassopus.xcframework'
-#  s.frameworks   = 'AVFoundation'
 
 #  s.vendored_frameworks = 'AudioPlayerKit.framework'
   # s.resource_bundles = {
