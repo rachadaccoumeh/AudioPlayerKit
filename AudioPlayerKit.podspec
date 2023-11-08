@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AudioPlayerKit'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Audio player support most audio type with many feature '
 
 # This description is used to generate tags and improve search results.
@@ -58,35 +58,12 @@ Pod::Spec.new do |s|
   
 #  # Define the source files and resources paths
 #  s.source_files = 'AudioPlayerKit/Classes/**/*.swift'
-#  s.resource = 'AudioPlayerKit/Classes/BASS/**/*.txt', 'AudioPlayerKit/Classes/BASS/**/*.chm', 'AudioPlayerKit/Classes/BASS/**/*.h', 'AudioPlayerKit/Classes/BASS/**/*.xcframework'
+  s.resource = 'AudioPlayerKit/Classes/BASS/**/*.txt', 'AudioPlayerKit/Classes/BASS/**/*.chm'
 #  
 #  # Specify the xcframeworks
-  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass.xcframework'
-  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass_fx.xcframework'
-  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bassopus.xcframework'
-  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bassflac.xcframework'
-#
-#  s.subspec 'bass_fx' do |ss|
-#    ss.source_files = 'AudioPlayerKit/Classes/BASS/*.h'
-#    ss.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass_fx.xcframework'
-#    ss.xcconfig = { 'OTHER_LDFLAGS' => '-lbass_fx' }
-#  end
-#
-#  s.subspec 'bassopus' do |ss|
-#    ss.source_files = 'AudioPlayerKit/Classes/BASS/*.h'
-#    ss.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bassopus.xcframework'
-#    ss.xcconfig = { 'OTHER_LDFLAGS' => '-lbassopus' }
-#  end
-#
-#  s.subspec 'bassflac' do |ss|
-#    ss.source_files = 'AudioPlayerKit/Classes/BASS/*.h'
-#    ss.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bassflac.xcframework'
-#    ss.xcconfig = { 'OTHER_LDFLAGS' => '-lbassflac' }
-#  end
-#
-#  # ... (other podspec settings)
-#
-#end
+  s.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass.xcframework','AudioPlayerKit/Classes/BASS/bass_fx.xcframework', 'AudioPlayerKit/Classes/BASS/bassopus.xcframework', 'AudioPlayerKit/Classes/BASS/bassflac.xcframework'
+
+
 
 
 

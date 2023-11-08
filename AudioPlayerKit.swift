@@ -137,7 +137,7 @@ import Combine
         
     }
     
-    public func setSpeed(speed:Float){
+    public func setPlaybackSpeed(speed:Float){
         let (tempo, pitch, sampleRate) = calculateTempoPitchAndSampleRateBasedOnSpeed(speed: speed)
         
         // Set the tempo, pitch, and sample rate of the new stream.

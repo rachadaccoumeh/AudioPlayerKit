@@ -71,19 +71,19 @@ class ViewController: UIViewController, AudioPlayerKitDelegate {
             switch buttonText {
             case  "1.0x":
                 button.setTitle( "1.5x",for: .normal)
-                audioPlayer.setSpeed(speed: 1.5)
+                audioPlayer.setPlaybackSpeed(speed: 1.5)
                 break;
             case  "1.5x":
                 button.setTitle( "2.0x",for: .normal)
-                audioPlayer.setSpeed(speed: 2.0)
+                audioPlayer.setPlaybackSpeed(speed: 2.0)
                 break;
             case  "2.0x":
                 button.setTitle( "0.5x",for: .normal)
-                audioPlayer.setSpeed(speed: 0.5)
+                audioPlayer.setPlaybackSpeed(speed: 0.5)
                 break;
             case  "0.5x":
                 button.setTitle( "1.0x",for: .normal)
-                audioPlayer.setSpeed(speed: 1.0)
+                audioPlayer.setPlaybackSpeed(speed: 1.0)
                 break;
             default:
                 break
