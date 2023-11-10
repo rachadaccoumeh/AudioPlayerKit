@@ -76,7 +76,7 @@ extension YourViewController: AudioPlayerKitDelegate {
 
 ## Requirements
 
--  ios 13+
+- ios 13+
 
 ## Installation
 
@@ -86,20 +86,32 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'AudioPlayerKit'
 ```
-## GitHub Repository:
+
+## GitHub Repository
+
 AudioPlayerKit is an open-source project available on GitHub. You can find the repository [here](https://github.com/rachadaccoumeh/AudioPlayerKit). We welcome contributions and assistance from the community to make AudioPlayerKit even better!
 
 AudioPlayerKit brings a wealth of powerful features to your iOS audio applications, ensuring a top-notch user experience and a multitude of options for audio manipulation and analysis. This library is your go-to choice for all your audio-related tasks, making it easy to integrate and utilize audio playback capabilities in your projects.
 
+## what is next
 
-
-
+- support macos
+- add waveform
+- audio streaming
 
 
 ## Author
 
-Rachad Accoumeh, rachadaccoumeh@gmail.com
+Rachad Accoumeh, <rachadaccoumeh@gmail.com>
 
 ## License
 
 AudioPlayerKit is available under the MIT license. See the LICENSE file for more info.
+
+## BASS
+
+The BASS library from Un4seen Developments is a powerful and versatile audio library tailored for software developers. Renowned for its broad support of audio formats, BASS facilitates seamless integration of advanced audio features into applications. With capabilities including playback, streaming, and recording, the library is a favored choice for developers aiming to implement high-quality and low-latency audio functionality. BASS finds application in diverse contexts such as music players, gaming software, and multimedia applications, where precise audio control is paramount.
+
+[BASS](http://www.un4seen.com)
+
+[BASS-lisence](http://www.un4seen.com/bass.html#license)

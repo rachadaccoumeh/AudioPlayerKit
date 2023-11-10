@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07B193EAA6366FF425BEA2E8CDF93D12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; platformFilter = ios; };
-		45DE7596FA8BEFE3894944E7D6BA1590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		500A509A48DA1E7B3BED2901511451A1 /* Pods-AudioPlayerKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C1780B629230EF289C73C9E9FFDE97 /* Pods-AudioPlayerKit_Tests-dummy.m */; };
 		571302522AFBAB2A00CCF2CA /* AudioPlayerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571302512AFBAB2A00CCF2CA /* AudioPlayerKit.swift */; };
 		573113D72AF91329001054FA /* bass_fx.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E89E2AF7AC4600B30B4B /* bass_fx.xcframework */; platformFilter = ios; };
@@ -19,9 +17,9 @@
 		573113DD2AF9132B001054FA /* bassflac.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E8A12AF7AC4B00B30B4B /* bassflac.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		573113DE2AF9132D001054FA /* bassopus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E8A42AF7AC4D00B30B4B /* bassopus.xcframework */; platformFilter = ios; };
 		573113DF2AF9132D001054FA /* bassopus.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9E8A42AF7AC4D00B30B4B /* bassopus.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		577A9E872AFDF44B00D90E61 /* Spectrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A9E862AFDF44B00D90E61 /* Spectrum.swift */; };
 		57A9E8952AF6BCE400B30B4B /* BASS in Resources */ = {isa = PBXBuildFile; fileRef = 57A9E8922AF6BCE400B30B4B /* BASS */; platformFilter = ios; };
 		6592A310796714C15E81847BBCBF1C87 /* AudioPlayerKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 42D79712452E48C8BC5867856030DEF5 /* AudioPlayerKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		83369D5C04B18931773D173AAD738FE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		8EEF610C73CD5EFD658DB741EE3B79A6 /* Pods-AudioPlayerKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F796003E8BA917EE786A70E034A70E7 /* Pods-AudioPlayerKit_Example-dummy.m */; };
 		A39DA548E7610D974817F59F970CB03C /* Pods-AudioPlayerKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 718B8352B2C630F475812D7840BF3F05 /* Pods-AudioPlayerKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF7681323B86DEC42E2926F8DD7062ED /* AudioPlayerKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D87693E26D1D8EF72FE139BD699C09 /* AudioPlayerKit-dummy.m */; platformFilter = ios; };
@@ -80,6 +78,7 @@
 		42C8BFA2176C97911FA904B7B454DFF1 /* Pods-AudioPlayerKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AudioPlayerKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		42D79712452E48C8BC5867856030DEF5 /* AudioPlayerKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AudioPlayerKit-umbrella.h"; sourceTree = "<group>"; };
 		571302512AFBAB2A00CCF2CA /* AudioPlayerKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioPlayerKit.swift; path = AudioPlayerKit/Classes/AudioPlayerKit.swift; sourceTree = "<group>"; };
+		577A9E862AFDF44B00D90E61 /* Spectrum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Spectrum.swift; path = AudioPlayerKit/Classes/Spectrum.swift; sourceTree = "<group>"; };
 		57A9E8922AF6BCE400B30B4B /* BASS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BASS; path = AudioPlayerKit/Classes/BASS; sourceTree = "<group>"; };
 		57A9E89A2AF7ABD800B30B4B /* bass.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = bass.xcframework; path = ../../AudioPlayerKit/Classes/BASS/bass.xcframework; sourceTree = "<group>"; };
 		57A9E89E2AF7AC4600B30B4B /* bass_fx.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = bass_fx.xcframework; path = ../../AudioPlayerKit/Classes/BASS/bass_fx.xcframework; sourceTree = "<group>"; };
@@ -87,7 +86,6 @@
 		57A9E8A42AF7AC4D00B30B4B /* bassopus.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = bassopus.xcframework; path = ../../AudioPlayerKit/Classes/BASS/bassopus.xcframework; sourceTree = "<group>"; };
 		5B672944D2B9FF4BB26B3CE5C1E3A593 /* Pods-AudioPlayerKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AudioPlayerKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		718B8352B2C630F475812D7840BF3F05 /* Pods-AudioPlayerKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AudioPlayerKit_Tests-umbrella.h"; sourceTree = "<group>"; };
-		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7453B520BE1A61F08CF0B468F59A2C0E /* AudioPlayerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AudioPlayerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C944CEBC46CF13DF32BF7B7D9EE841 /* Pods-AudioPlayerKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AudioPlayerKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8F30919436CEBE46865B2016550A5D67 /* Pods-AudioPlayerKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AudioPlayerKit_Example-umbrella.h"; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83369D5C04B18931773D173AAD738FE1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +113,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45DE7596FA8BEFE3894944E7D6BA1590 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +120,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07B193EAA6366FF425BEA2E8CDF93D12 /* Foundation.framework in Frameworks */,
 				573113DC2AF9132B001054FA /* bassflac.xcframework in Frameworks */,
 				573113DA2AF9132A001054FA /* bass.xcframework in Frameworks */,
 				573113D72AF91329001054FA /* bass_fx.xcframework in Frameworks */,
@@ -172,16 +167,8 @@
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		57A680502AFA40EC009D3649 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sources;
 			sourceTree = "<group>";
 		};
 		620099C661017C9FA14B94EE3E1E2B0A /* Targets Support Files */ = {
@@ -261,8 +248,8 @@
 		F4DAEF2FB0DE19B8688CF96A4B296A1E /* AudioPlayerKit */ = {
 			isa = PBXGroup;
 			children = (
+				577A9E862AFDF44B00D90E61 /* Spectrum.swift */,
 				571302512AFBAB2A00CCF2CA /* AudioPlayerKit.swift */,
-				57A680502AFA40EC009D3649 /* Sources */,
 				57A9E8922AF6BCE400B30B4B /* BASS */,
 				2DB9241B5DE33C7767415D0A6646275C /* Pod */,
 				99BB22A4E1928A6397ED9E5CED1D1A3D /* Support Files */,
@@ -425,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				577A9E872AFDF44B00D90E61 /* Spectrum.swift in Sources */,
 				BF7681323B86DEC42E2926F8DD7062ED /* AudioPlayerKit-dummy.m in Sources */,
 				571302522AFBAB2A00CCF2CA /* AudioPlayerKit.swift in Sources */,
 			);
@@ -488,7 +476,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -806,7 +794,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;

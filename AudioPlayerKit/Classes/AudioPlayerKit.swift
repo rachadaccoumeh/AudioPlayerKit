@@ -186,7 +186,7 @@ import Combine
         // The sample format specified in the freq and flags parameters has no effect on the output on macOS or iOS.
         // The device's native sample format is automatically used.
         
-        NotificationCenter.default.addObserver(self, selector: #selector(audioInterruptionOccurred), name: .AVAudioSessionInterruption, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(audioInterruptionOccurred), name: AVAudioSession.interruptionNotification, object: nil)
 
         volume = CGFloat(Double(BASS_GetConfig(DWORD(BASS_CONFIG_GVOL_STREAM))) / 10000.0)
         
@@ -223,13 +223,13 @@ import Combine
     @objc func audioInterruptionOccurred(_ notification: Notification) {
         if let interruptionDictionary = notification.userInfo,
            let interruptionTypeRaw = interruptionDictionary[AVAudioSessionInterruptionTypeKey] as? UInt,
-           let interruptionType = AVAudioSessionInterruptionType(rawValue: interruptionTypeRaw) {
+           let interruptionType = AVAudioSession.InterruptionType(rawValue: interruptionTypeRaw) {
             switch interruptionType {
             case .began:
                 notifyBeginInterruption()
             case .ended:
                 if let optionsRaw = interruptionDictionary[AVAudioSessionInterruptionOptionKey] as? UInt{
-                   let options = AVAudioSessionInterruptionOptions(rawValue: optionsRaw)
+                    let options = AVAudioSession.InterruptionOptions(rawValue: optionsRaw)
                     notifyEndInterruption(shouldResume: options == .shouldResume)
                 }
             }

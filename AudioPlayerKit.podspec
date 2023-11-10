@@ -8,10 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AudioPlayerKit'
-  s.version          = '0.1.3'
-  s.summary          = 'Audio player support most audio type with many feature '
-
-
+  s.version          = '0.1.4'
+  s.summary          = 'Audio player support most audio type with many feature. '
   s.description      = <<-DESC
   AudioPlayerKit - Your Ultimate Audio Player Library
 
@@ -46,25 +44,15 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Rachad Accoumeh' => 'rachadaccoumeh@gmail.com' }
   s.source           = { :git => 'https://github.com/rachadaccoumeh/AudioPlayerKit.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+   s.social_media_url = 'https://linkedin.com/in/rachad-accoumeh'#'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '13.0'
   s.platform          = :ios, '13.0'
   
-#  # Define the source files and resources paths
-#  s.source_files = 'AudioPlayerKit/Classes/**/*.swift'
   s.resource = 'AudioPlayerKit/Classes/BASS/**/*.txt', 'AudioPlayerKit/Classes/BASS/**/*.chm'
-#  
-#  # Specify the xcframeworks
   s.ios.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass.xcframework','AudioPlayerKit/Classes/BASS/bass_fx.xcframework', 'AudioPlayerKit/Classes/BASS/bassopus.xcframework', 'AudioPlayerKit/Classes/BASS/bassflac.xcframework'
-
-
   s.requires_arc = true
   s.frameworks   = 'AVFoundation', 'bass', 'bass_fx', 'bassopus', 'bassflac'
-
-
-
-
   s.source_files = 'AudioPlayerKit/Classes/**/*.{h,m,swift}'
   s.preserve_paths = 'AudioPlayerKit/Classes/**/*.h'
   s.public_header_files = 'AudioPlayerKit/Classes/**/*.h'
