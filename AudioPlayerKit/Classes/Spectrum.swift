@@ -1,5 +1,10 @@
-// Spectrum.swift
-// SwiftBassDemo
+//
+//  Sperctum.swift
+//  Pods
+//
+//  Created by Rachad Accoumeh on 04/11/2023.
+//  Copyright (c) 2023 Rachad Accoumeh. All rights reserved.
+//
 //
 // This view renders a visualization of the simple one-dimensional spectrum (using a mean-square amplitude scale) of the music.
 // It renders only the first 512 of the 8192 bins. Thus, the highest frequency is 44,100 / 32 = 1,378.125 Hz

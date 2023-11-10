@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AudioPlayerKit'
-  s.version          = '0.1.4'
+  s.version          = '0.2.1'
   s.summary          = 'Audio player support most audio type with many feature. '
   s.description      = <<-DESC
   AudioPlayerKit - Your Ultimate Audio Player Library
@@ -48,6 +48,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '13.0'
   s.platform          = :ios, '13.0'
+  s.swift_versions    = '5.0'
   
   s.resource = 'AudioPlayerKit/Classes/BASS/**/*.txt', 'AudioPlayerKit/Classes/BASS/**/*.chm'
   s.ios.vendored_frameworks = 'AudioPlayerKit/Classes/BASS/bass.xcframework','AudioPlayerKit/Classes/BASS/bass_fx.xcframework', 'AudioPlayerKit/Classes/BASS/bassopus.xcframework', 'AudioPlayerKit/Classes/BASS/bassflac.xcframework'

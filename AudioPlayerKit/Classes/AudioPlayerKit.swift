@@ -2,224 +2,237 @@
 //  AudioPlayerKit.swift
 //  Pods
 //
-//  Created by rachad accoumeh on 04/11/2023.
-//  Copyright (c) 2023 rachadaccoumeh@gmail.com. All rights reserved.
+//  Created by Rachad Accoumeh on 04/11/2023.
+//  Copyright (c) 2023 Rachad Accoumeh. All rights reserved.
 //
+
 import AVFoundation
 import SwiftUI
 import Combine
 
-
-
+/// The main class for managing audio playback using the BASS library.
 @objc public class AudioPlayerKit: NSObject, ObservableObject {
-    static let audioManager = AudioPlayerKit() // This singleton instantiates the AudioManager class and runs setupAudio()
-    
-    public weak var delegate: AudioPlayerKitDelegate?
+    /// Singleton instance for managing audio playback.
+    static let audioManager = AudioPlayerKit()
+
+    /// Delegate for receiving audio playback events.
+    @objc public weak var delegate: AudioPlayerKitDelegate?
     private var notificationCenter: NotificationCenter = NotificationCenter.default
     private var audioSession = AVAudioSession.sharedInstance
 
-    
-    /* Represents current volume 0..1 */
-    public var volume: CGFloat = 1.0
-    
-    
-    
+    /// Represents the current volume (0.0 to 1.0).
+    @objc public var volume: CGFloat = 1.0
+
     var timeInterval: Double = 1.0 / 60.0 // 60 frames per second
     let micOn: Bool = false
     var tempoStream: HSTREAM = 0
-    
-    // Play this song when the SwiftBassDemo app starts:
-    
-    // Declare an array of the final values (for this frame) that we will publish to the visualization:
-    @Published public var spectrum: [Float] = [Float](repeating: 0.0, count: 16384 / 2) // binCount = 8,192
-    
-    // MARK: Init
-    
-    
+
+    /// Published array representing the spectrum of the audio.
+    @Published public var spectrum: [Float] = [Float](repeating: 0.0, count: 16384 / 2)
+
+    // MARK: Initialization
+
+    /// Initializes the audio player and sets up audio configuration.
     public override init() {
         super.init()
         setupAudio()
     }
-    
+
     deinit {
         notificationCenter.removeObserver(self)
         BASS_Free()
     }
-    
-    // MARK: player function
-    
-    
-    /*
-     Player values
+
+    // MARK: Player Functions
+
+    /**
+     Returns the duration of the currently loaded audio.
+
+     - Returns: The duration of the audio in seconds.
      */
-    public func duration()->TimeInterval{
+    @objc public func duration() -> TimeInterval {
         let len = BASS_ChannelGetLength(tempoStream, DWORD(BASS_POS_BYTE))
         let time = BASS_ChannelBytes2Seconds(tempoStream, len)
         return time
     }
-    
-    /*
-     Player interactions
-     */
-    public func play(){
-        BASS_ChannelPlay(tempoStream,BOOL32(truncating: false))
-        self.notifyStatusChanged()
+
+    /// Starts playback of the loaded audio.
+    @objc public func play() {
+        BASS_ChannelPlay(tempoStream, BOOL32(truncating: false))
+        notifyStatusChanged()
     }
-    
-    public func pause(){
+
+    /// Pauses the playback of the audio.
+    @objc public func pause() {
         BASS_ChannelPause(tempoStream)
-        self.notifyStatusChanged()
+        notifyStatusChanged()
     }
-    
-    public func stop(){
+
+    /// Stops the playback of the audio and resets the position to the beginning.
+    @objc public func stop() {
         setPosition(position: 0)
         BASS_ChannelStop(tempoStream)
-        self.notifyStatusChanged()
+        notifyStatusChanged()
     }
-    
-    public func isPlaying() -> Bool{
+
+    /// Checks if the audio is currently playing.
+    @objc public func isPlaying() -> Bool {
         let isPlaying = BASS_ChannelIsActive(tempoStream)
         return isPlaying == BASS_ACTIVE_PLAYING
     }
-    
-    public func loadAudio(url:NSURL,play:Bool = false,timeInterval: Double = 30.0)->Bool{
-//        do {
-//            try audioSession.setCategory(.playback)
-//            try audioSession.setActive(true)
-//        } catch {
-//            print("Error setting audio session category: \(error)")
-//        }        
-        
-        self.timeInterval = 1.0 / timeInterval
-        //Stop channel;
-        BASS_ChannelStop(tempoStream)
-        //Free memory
-        BASS_StreamFree(tempoStream)
-        
-        var stream:HSTREAM
-        
-        if url.path != nil && url.path!.contains(".opus") {
-            // Create a sample stream from our MP3 song file:
-            stream = BASS_OPUS_StreamCreateFile(BOOL32(truncating: false), // mem: false = stream the file from a filename
-                                                url.path!, // file:
-                                                0, // offset:
-                                                0, // length: 0 = use all data up to end of file
-                                                DWORD(BASS_STREAM_DECODE)) // flags:
-        } else {
-            stream = BASS_StreamCreateFile(BOOL32(truncating: false), // mem: false = stream the file from a filename
-                                           url.path!, // file:
-                                           0, // offset:
-                                           0, // length: 0 = use all data up to end of file
-                                           DWORD(BASS_STREAM_DECODE)) // flags:
-        }
-        
-        // Set callback
-        BASS_ChannelSetSync(tempoStream, DWORD(BASS_SYNC_END), 0, channelEndedCallback, Unmanaged.passUnretained(self).toOpaque())
-//        BASS_ChannelSetSync(channel, DWORD(BASS_SYNC_END), 0, unsafeBitCast(channelEndedCallback, to: DWORD_PTR.self), Unmanaged.passUnretained(self).toOpaque())
 
-        
-        // Create a new stream with tempo, pitch, and sample rate control
-        tempoStream = BASS_FX_TempoCreate(stream, DWORD(BASS_FX_FREESOURCE)) // BASS_SAMPLE_FLOAT
-        
-        
-        // Compute the 8192-bin spectrum of the song waveform every 1/60 seconds:
+    /**
+     Loads audio from the specified URL.
+
+     - Parameters:
+        - url: The URL of the audio file to load.
+        - play: Determines whether to start playback after loading.
+        - timeInterval: The time interval for updating the audio visualization.
+
+     - Returns: A boolean indicating whether the loading was successful.
+     */
+    @objc public func loadAudio(url: NSURL, play: Bool = false, timeInterval: Double = 30.0) -> Bool {
+        //        do {
+        //            try audioSession.setCategory(.playback)
+        //            try audioSession.setActive(true)
+        //        } catch {
+        //            print("Error setting audio session category: \(error)")
+        //        }
+        self.timeInterval = 1.0 / timeInterval
+        BASS_ChannelStop(tempoStream)
+        BASS_StreamFree(tempoStream)
+
+        var stream: HSTREAM
+
+        if url.path != nil && url.path!.contains(".opus") {
+            stream = BASS_OPUS_StreamCreateFile(
+                BOOL32(truncating: false),
+                url.path!,
+                0,
+                0,
+                DWORD(BASS_STREAM_DECODE)
+            )
+        } else {
+            stream = BASS_StreamCreateFile(
+                BOOL32(truncating: false),
+                url.path!,
+                0,
+                0,
+                DWORD(BASS_STREAM_DECODE)
+            )
+        }
+
+        BASS_ChannelSetSync(
+            tempoStream,
+            DWORD(BASS_SYNC_END),
+            0,
+            channelEndedCallback,
+            Unmanaged.passUnretained(self).toOpaque()
+        )
+
+        tempoStream = BASS_FX_TempoCreate(stream, DWORD(BASS_FX_FREESOURCE))
+
         Timer.scheduledTimer(withTimeInterval: self.timeInterval, repeats: true) { _ in
             BASS_ChannelGetData(self.tempoStream, &self.spectrum, BASS_DATA_FFT16384)
             self.delegate?.updatePosition?(self.position())
         }
-        
-        if(play){
+
+        if play {
             self.play()
         }
-        
+
         let err = BASS_ErrorGetCode()
         return err == 0
-        
     }
-    
-    public func setPlaybackSpeed(speed:Float){
-        let (tempo, pitch, sampleRate) = calculateTempoPitchAndSampleRateBasedOnSpeed(speed: speed)
-        
-        // Set the tempo, pitch, and sample rate of the new stream.
-        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO),tempo)
-        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO_PITCH),-3)
-        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO_FREQ),sampleRate)
-        
-        
+
+    /**
+     Sets the playback speed of the audio.
+
+     - Parameter speed: The desired playback speed.
+     */
+    @objc public func setPlaybackSpeed(speed: Float) {
+        let (tempo, _, sampleRate) = calculateTempoPitchAndSampleRateBasedOnSpeed(speed: speed)
         
         //        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO), 20) // 20% faster
         //        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO_PITCH), -3) // 3 semitones lower
         //        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO_FREQ), 44100) // 44100 Hz sample rate
         
         
+
+        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO), tempo)
+        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO_PITCH), -3)
+        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO_FREQ), sampleRate)
     }
-    
-    /* Represents current position 0..1 */
-    public func position()->Double{
-        let positionBytes = BASS_ChannelGetPosition(tempoStream, DWORD(BASS_POS_BYTE));
-        let len = BASS_ChannelGetLength(tempoStream, DWORD(BASS_POS_BYTE));
-        return (Double) (positionBytes) / (Double) (len)
+
+    /// Gets the current position of the audio playback (0.0 to 1.0).
+    @objc public func position() -> Double {
+        let positionBytes = BASS_ChannelGetPosition(tempoStream, DWORD(BASS_POS_BYTE))
+        let len = BASS_ChannelGetLength(tempoStream, DWORD(BASS_POS_BYTE))
+        return (Double)(positionBytes) / (Double)(len)
     }
-    
-    public func setPosition(position: CGFloat) {
+
+    /**
+     Sets the playback position of the audio.
+
+     - Parameter position: The desired playback position (0.0 to 1.0).
+     */
+    @objc public func setPosition(position: CGFloat) {
         let len = BASS_ChannelGetLength(tempoStream, DWORD(BASS_POS_BYTE))
         let bytesPosition = Double(len) * Double(position)
-        
         BASS_ChannelSetPosition(tempoStream, QWORD(bytesPosition), DWORD(BASS_POS_BYTE))
     }
-    
-    public func setVolume(volume :CGFloat){
-        self.volume = volume;
-        BASS_SetConfig(DWORD(BASS_CONFIG_GVOL_STREAM), DWORD(volume * 10000.0));
-        
+
+    /**
+     Sets the volume level of the audio.
+
+     - Parameter volume: The desired volume level (0.0 to 1.0).
+     */
+    @objc public func setVolume(volume: CGFloat) {
+        self.volume = volume
+        BASS_SetConfig(DWORD(BASS_CONFIG_GVOL_STREAM), DWORD(volume * 10000.0))
     }
-    
-    private   func setupAudio() {
-        print(BASS_GetVersion()) // This prints "33_820_928" in Xcode's console pane
+
+    // MARK: Private Functions
+
+    /// Sets up the audio configuration.
+    private func setupAudio() {
         
-        // Initialize the output device (i.e., speakers) that BASS should use:
-        BASS_Init(-1, // device: -1 is the default device
-                   44100, // freq: output sample rate is 44,100 sps
-                   0, // flags:
-                   nil, // win: 0 = the desktop window (use this for console applications)
-                   nil) // Unused, set to nil
-        // The sample format specified in the freq and flags parameters has no effect on the output on macOS or iOS.
-        // The device's native sample format is automatically used.
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(audioInterruptionOccurred), name: AVAudioSession.interruptionNotification, object: nil)
+        print(BASS_GetVersion())
+        BASS_Init(-1, 44100, 0, nil, nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(audioInterruptionOccurred),
+            name: AVAudioSession.interruptionNotification,
+            object: nil
+        )
 
         volume = CGFloat(Double(BASS_GetConfig(DWORD(BASS_CONFIG_GVOL_STREAM))) / 10000.0)
-        
     }
-    
-    
-    
-    // MARK: private func
-    
-    
+
+    /// Calculates tempo, pitch, and sample rate based on the specified speed.
     private func calculateTempoPitchAndSampleRateBasedOnSpeed(speed: Float) -> (tempo: Float, pitch: Float, sampleRate: Float) {
-//        // Calculate the tempo.
-//        let tempoFactor = (speed-1)*100
-//        print("speed \(tempoFactor)")
-//        
-//        // Calculate the pitch.
-//        let pitchSemitones = (log2(tempoFactor) * 12)
-//        print("pitchSemitones \(pitchSemitones)")
-//        
-//        // Calculate the sample rate.
-//        let sampleRate = (Float)(44100 * tempoFactor)
-//        print("sampleRate \(sampleRate)")
-//        
-//        return (tempoFactor, pitchSemitones, sampleRate)
-        
+        //        // Calculate the tempo.
+        //        let tempoFactor = (speed-1)*100
+        //        print("speed \(tempoFactor)")
+        //
+        //        // Calculate the pitch.
+        //        let pitchSemitones = (log2(tempoFactor) * 12)
+        //        print("pitchSemitones \(pitchSemitones)")
+        //
+        //        // Calculate the sample rate.
+        //        let sampleRate = (Float)(44100 * tempoFactor)
+        //        print("sampleRate \(sampleRate)")
+        //
+        //        return (tempoFactor, pitchSemitones, sampleRate)
         let tempo = speed * 2.0
         let pitch = speed / 2.0
         let sampleRate = speed * 44100.0
         return (tempo, pitch, sampleRate)
     }
-    
-    // MARK: sync callback and delegate
-    
+
+    // MARK: Sync Callback and Delegate
+
     @objc func audioInterruptionOccurred(_ notification: Notification) {
         if let interruptionDictionary = notification.userInfo,
            let interruptionTypeRaw = interruptionDictionary[AVAudioSessionInterruptionTypeKey] as? UInt,
@@ -228,39 +241,37 @@ import Combine
             case .began:
                 notifyBeginInterruption()
             case .ended:
-                if let optionsRaw = interruptionDictionary[AVAudioSessionInterruptionOptionKey] as? UInt{
+                if let optionsRaw = interruptionDictionary[AVAudioSessionInterruptionOptionKey] as? UInt {
                     let options = AVAudioSession.InterruptionOptions(rawValue: optionsRaw)
                     notifyEndInterruption(shouldResume: options == .shouldResume)
                 }
             }
         }
     }
-    
+
     internal func notifyStatusChanged() {
-        if let delegate = delegate{
+        if let delegate = delegate {
             delegate.playerDidChangePlayingStatus?(self)
         }
     }
 
-    internal func notifyDidFinishPlaying(){
-        if let delegate = delegate{
+    internal func notifyDidFinishPlaying() {
+        if let delegate = delegate {
             delegate.playerDidFinishPlaying?(self)
         }
     }
-    
+
     internal func notifyBeginInterruption() {
-        if let delegate = delegate{
+        if let delegate = delegate {
             delegate.playerBeginInterruption?(self)
         }
     }
-    
+
     internal func notifyEndInterruption(shouldResume: Bool) {
-        if let delegate = delegate{
+        if let delegate = delegate {
             delegate.playerEndInterruption?(self, shouldResume: shouldResume)
         }
     }
-    
-
 }
 
 @_cdecl("channelEndedCallback")
@@ -274,37 +285,43 @@ func channelEndedCallback(handle: HSYNC, channel: DWORD, data: DWORD, user: Unsa
     }
 }
 
-
-// MARK: protocol
-
+// MARK: Protocol
 
 @objc public protocol AudioPlayerKitDelegate {
-    
-    @objc optional func updatePosition(_ position: Double)
     /**
-     *  Notifies the delegate about playing status changed
-     *
-     *  @param player AudioPlayerKit
+     Notifies the delegate about the update in playback position.
+
+     - Parameter position: The updated playback position.
+     */
+    @objc optional func updatePosition(_ position: Double)
+
+    /**
+     Notifies the delegate about changes in the playing status of the audio player.
+
+     - Parameter player: The `AudioPlayerKit` instance.
      */
     @objc optional func playerDidChangePlayingStatus(_ player: AudioPlayerKit)
+
     /**
-     *  Will be called when track is over
-     *
-     *  @param player AudioPlayerKit
+     Notifies the delegate when the audio playback has finished.
+
+     - Parameter player: The `AudioPlayerKit` instance.
      */
     @objc optional func playerDidFinishPlaying(_ player: AudioPlayerKit)
+
     /**
-     *   Will be called when interruption occured. For ex. phone call. Basically you should call - (void)pause in this case.
-     *
-     *  @param player AudioPlayerKit
+     Notifies the delegate when an interruption occurs in the audio playback.
+
+     - Parameter player: The `AudioPlayerKit` instance.
      */
     @objc optional func playerBeginInterruption(_ player: AudioPlayerKit)
+
     /**
-     *   Will be called when interruption ended. For ex. phone call ended. It's up to you to decide to call - (void)resume or not.
-     *
-     *  @param player AudioPlayerKit
-     *  @param should BOOL
+     Notifies the delegate when an interruption in the audio playback has ended.
+
+     - Parameters:
+        - player: The `AudioPlayerKit` instance.
+        - shouldResume: A boolean indicating whether playback should resume after the interruption ends.
      */
     @objc optional func playerEndInterruption(_ player: AudioPlayerKit, shouldResume: Bool)
 }
-
