@@ -122,6 +122,9 @@ import Combine
             )
         }
 
+
+        tempoStream = BASS_FX_TempoCreate(stream, DWORD(BASS_FX_FREESOURCE))
+        
         BASS_ChannelSetSync(
             tempoStream,
             DWORD(BASS_SYNC_END),
@@ -129,8 +132,6 @@ import Combine
             channelEndedCallback,
             Unmanaged.passUnretained(self).toOpaque()
         )
-
-        tempoStream = BASS_FX_TempoCreate(stream, DWORD(BASS_FX_FREESOURCE))
 
         Timer.scheduledTimer(withTimeInterval: self.timeInterval, repeats: true) { _ in
             BASS_ChannelGetData(self.tempoStream, &self.spectrum, BASS_DATA_FFT16384)
@@ -177,8 +178,9 @@ import Combine
      - Parameter position: The desired playback position (0.0 to 1.0).
      */
     @objc public func setPosition(position: CGFloat) {
+        let clampedPosition = max(0.0, min(1.0, position))
         let len = BASS_ChannelGetLength(tempoStream, DWORD(BASS_POS_BYTE))
-        let bytesPosition = Double(len) * Double(position)
+        let bytesPosition = Double(len) * Double(clampedPosition)
         BASS_ChannelSetPosition(tempoStream, QWORD(bytesPosition), DWORD(BASS_POS_BYTE))
     }
 
@@ -188,8 +190,9 @@ import Combine
      - Parameter volume: The desired volume level (0.0 to 1.0).
      */
     @objc public func setVolume(volume: CGFloat) {
-        self.volume = volume
-        BASS_SetConfig(DWORD(BASS_CONFIG_GVOL_STREAM), DWORD(volume * 10000.0))
+        let clampedVolume = max(0.0, min(1.0, volume))
+        self.volume = clampedVolume
+        BASS_SetConfig(DWORD(BASS_CONFIG_GVOL_STREAM), DWORD(clampedVolume * 10000.0))
     }
 
     // MARK: Private Functions

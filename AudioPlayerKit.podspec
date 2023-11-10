@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AudioPlayerKit'
-  s.version          = '0.2.1'
+  s.version          = '0.2.3'
   s.summary          = 'Audio player support most audio type with many feature. '
   s.description      = <<-DESC
   AudioPlayerKit - Your Ultimate Audio Player Library
