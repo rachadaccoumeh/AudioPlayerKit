@@ -152,7 +152,7 @@ import Combine
      - Parameter speed: The desired playback speed.
      */
     @objc public func setPlaybackSpeed(speed: Float) {
-        let (tempo, _, sampleRate) = calculateTempoPitchAndSampleRateBasedOnSpeed(speed: speed)
+        let (tempo, _, _) = calculateTempoPitchAndSampleRateBasedOnSpeed(speed: speed)
         
         //        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO), 20) // 20% faster
         //        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO_PITCH), -3) // 3 semitones lower
@@ -161,8 +161,8 @@ import Combine
         
 
         BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO), tempo)
-        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO_PITCH), -3)
-        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO_FREQ), sampleRate)
+//        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO_PITCH), -3)
+//        BASS_ChannelSetAttribute(tempoStream, DWORD(BASS_ATTRIB_TEMPO_FREQ), sampleRate)
     }
 
     /// Gets the current position of the audio playback (0.0 to 1.0).
@@ -215,23 +215,23 @@ import Combine
 
     /// Calculates tempo, pitch, and sample rate based on the specified speed.
     private func calculateTempoPitchAndSampleRateBasedOnSpeed(speed: Float) -> (tempo: Float, pitch: Float, sampleRate: Float) {
-        //        // Calculate the tempo.
-        //        let tempoFactor = (speed-1)*100
-        //        print("speed \(tempoFactor)")
-        //
-        //        // Calculate the pitch.
-        //        let pitchSemitones = (log2(tempoFactor) * 12)
-        //        print("pitchSemitones \(pitchSemitones)")
-        //
-        //        // Calculate the sample rate.
-        //        let sampleRate = (Float)(44100 * tempoFactor)
-        //        print("sampleRate \(sampleRate)")
-        //
-        //        return (tempoFactor, pitchSemitones, sampleRate)
-        let tempo = speed * 2.0
-        let pitch = speed / 2.0
-        let sampleRate = speed * 44100.0
-        return (tempo, pitch, sampleRate)
+                // Calculate the tempo.
+                let tempoFactor = (speed-1)*100
+                print("speed \(tempoFactor)")
+        
+                // Calculate the pitch.
+                let pitchSemitones = (log2(tempoFactor) * 12)
+                print("pitchSemitones \(pitchSemitones)")
+        
+                // Calculate the sample rate.
+                let sampleRate = (Float)(44100 * tempoFactor)
+                print("sampleRate \(sampleRate)")
+        
+                return (tempoFactor, pitchSemitones, sampleRate)
+//        let tempo = speed * 2.0
+//        let pitch = speed / 2.0
+//        let sampleRate = speed * 44100.0
+//        return (tempo, pitch, sampleRate)
     }
 
     // MARK: Sync Callback and Delegate
