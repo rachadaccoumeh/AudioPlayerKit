@@ -180,8 +180,9 @@ import Combine
     @objc public func setPosition(position: CGFloat) {
         let clampedPosition = max(0.0, min(1.0, position))
         let len = BASS_ChannelGetLength(tempoStream, DWORD(BASS_POS_BYTE))
-        let bytesPosition = Double(len) * Double(clampedPosition)
-        BASS_ChannelSetPosition(tempoStream, QWORD(bytesPosition), DWORD(BASS_POS_BYTE))
+        let bytesPosition = UInt64(Double(len) * Double(clampedPosition))
+        let clampedBytesPosition = min(UInt64.max, bytesPosition)
+        BASS_ChannelSetPosition(tempoStream, QWORD(clampedBytesPosition), DWORD(BASS_POS_BYTE))
     }
 
     /**
